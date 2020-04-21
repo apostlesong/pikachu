@@ -34,4 +34,6 @@ public interface CardService {
 	public CardBean getCard(int c_id);
 	
 	public Map<Integer, CardBean> getModalBean(String hql);
+	
+	public Map<Integer, CardBean> getRandomBean();
 }

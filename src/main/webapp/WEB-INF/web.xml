@@ -49,4 +49,14 @@
     <servlet-name>ModalSearch</servlet-name>
     <url-pattern>/ModalSearch</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CardDetail</display-name>
+    <servlet-name>CardDetail</servlet-name>
+    <servlet-class>card.controller.CardDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CardDetail</servlet-name>
+    <url-pattern>/cards/cradeitsearch_produce</url-pattern>
+  </servlet-mapping>
 </web-app>

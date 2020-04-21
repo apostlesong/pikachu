@@ -206,5 +206,23 @@ public class CardServiceImpl implements CardService {
 		return map;
 		
 	}
+
+	@Override
+	public Map<Integer, CardBean> getRandomBean() {
+		Map<Integer, CardBean> map = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			map = dao.getRandomBean();
+			tx.commit();
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		return map;
+	}
 	
 }

@@ -17,7 +17,7 @@ import card.model.CardBean;
 import card.service.CardService;
 import card.service.impl.CardServiceImpl;
 
-@WebServlet("/ModalSearchs")
+@WebServlet("*.do")
 public class ModalSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -60,14 +60,14 @@ public class ModalSearch extends HttpServlet {
 		request.setAttribute("ql", ql);
 		CardService service = new CardServiceImpl();
 		Map<Integer, CardBean> CardMap = service.getModalBean(ql);
-		session.setAttribute("products_DPP", CardMap);
+		request.setAttribute("products_DPP", CardMap);
 		
 //		RequestDispatcher rd = request.getRequestDispatcher("/cards/modaltest.jsp");		
-//		RequestDispatcher rd = request.getRequestDispatcher("/cards/cradeitsearch_minecredit.jsp");
-		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/cards/cradeitsearch_minecredit.jsp");
-	
-//		rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("/cards/cradeitsearch_minecredit.jsp");
+//		String contextPath = request.getContextPath();
+//		response.sendRedirect(contextPath + "/cards/cradeitsearch_minecredit.jsp");
+//	
+		rd.forward(request, response);
 	
 		
 	}

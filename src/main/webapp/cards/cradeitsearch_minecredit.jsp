@@ -31,7 +31,7 @@
                   <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">購物商城</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">信用卡</a></li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡</a></li>
                </ul>
              </div>
           </nav>
@@ -78,7 +78,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
@@ -126,7 +126,7 @@
                </div>
                <div class="modal-body">
                 <!-- 多用一個 form 表單包裝起來，之後送到後端 server  -->
-              <form id="my-form" action="${pageContext.servletContext.contextPath}/ModalSearchs" method="post">
+              <form id="my-form" action="${pageContext.servletContext.contextPath}/cards/ModalSearch.do" method="post">
                   <div class="step step1 active">
                   <!--開始-->
                    <p>請回答以下問題協助我們找出最適合您的信用卡</p>
@@ -141,14 +141,14 @@
                    <p>請回答以下問題協助我們找出最適合您的信用卡(最多需要五題)</p>
                    <p>Q2請問您的年收入</p>
                    <input type="radio" value="c.annual_income &lt;= 400000 AND c.annual_income &gt; 0" name="sal">20-40萬
-                   <input type="radio" value="c.annual_income &lt;= 600000 AND c.annual_income &gt; 0" name="sal">40-60萬
+                   <input type="radio" value="c.annual_income &lt;= 600000 AND c.annual_income &gt; 0" name="sal" checked="true">40-60萬
                    <input type="radio" value="c.annual_income BETWEEN 600000 AND 2000000 OR c.annual_income = 0" name="sal">60-200萬
                    <input type="radio" value="c.annual_income &gt;= 2000000 OR c.annual_income = 0" name="sal">200萬以上</br>
                </div>
                  <div class="step step4">
                  <p>請回答以下問題協助我們找出最適合您的信用卡(最多需要五題)</p>
                  <p>Q3請問您是否有辦過信用卡</p>
-                 <input type="radio" value="" name="">是
+                 <input type="radio" value="" name="" checked="true">是
                  <input type="radio" value="" name="">否</br>
              </div>
              <div class="step step5">
@@ -156,33 +156,33 @@
                 <p>Q4請依序選擇您平常最常做的消費,至多可以選擇3項</p>   
                    1.<select class='se' name="opt1">
                    <option name="">請選擇</option>
-                   <option name="option" value='c.fcb > 0'>百貨購物</option>
+                   <option name="option" value='c.dcb > 0'>百貨購物</option>
                    <option name="option" value='c.onlinefb > 0'>網路購物</option>
                    <option name="option" value='c.refuel_cb > 0'>加油</option>
-                   <option name="option" value="c.fma LIKE 'NT%'">海外旅遊</option>
+                   <option name="option" value="c.fcb > 0">海外旅遊</option>
                    <option name="option" value="c.moviedis LIKE '%折'">電影娛樂</option>
                    </select>
                    2.<select class='se' name="opt2">
                    <option name="">請選擇</option>
-                   <option name="option" value='c.fcb > 0'>百貨購物</option>
+                   <option name="option" value='c.dcb > 0'>百貨購物</option>
                    <option name="option" value='c.onlinefb > 0'>網路購物</option>
                    <option name="option" value='c.refuel_cb > 0'>加油</option>
-                   <option name="option" value="c.fma LIKE 'NT%'">海外旅遊</option>
+                   <option name="option" value="c.fcb > 0">海外旅遊</option>
                    <option name="option" value="c.moviedis LIKE '%折'">電影娛樂</option>
                     </select>
                     3.<select class='se' name="opt3">
                    <option name="">請選擇</option>
-                   <option name="option" value='c.fcb > 0'>百貨購物</option>
+                   <option name="option" value='c.dcb > 0'>百貨購物</option>
                    <option name="option" value='c.onlinefb > 0'>網路購物</option>
                    <option name="option" value='c.refuel_cb > 0'>加油</option>
-                   <option name="option" value="c.fma LIKE 'NT%'">海外旅遊</option>
+                   <option name="option" value="c.fcb > 0">海外旅遊</option>
                    <option name="option" value="c.moviedis LIKE '%折'">電影娛樂</option>
                       </select>
 
               </div>
               <div class="step step6">
              <p>Q5請問您的性別</p>
-                   <input type="radio" value="male" name="gender">男
+                   <input type="radio" value="male" name="gender" checked="true">男
                    <input type="radio" id="test" value="female" name="gender">女</br>
               
             <!--      <p>請回答以下問題協助我們找出最適合您的信用卡(最多需要五題)</p>

@@ -20,7 +20,7 @@ import card.service.impl.CardServiceImpl;
 public class CbPageCardsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	String queryType = "cb";
+	String queryType = "main";
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -61,7 +61,11 @@ public class CbPageCardsServlet extends HttpServlet {
 		
 		Map<Integer, CardBean> CardMap;
 		switch(queryType){
-
+		
+		case "main":
+		CardMap = service.getRandomBean();
+		break;
+		
 		case "cb":
 		CardMap = service.getCbPageCards();
 		break;
@@ -99,8 +103,8 @@ public class CbPageCardsServlet extends HttpServlet {
 		}
 		int cardCounts = CardMap.size();
 		request.setAttribute("cardCounts", cardCounts);
-		session.setAttribute("qt", queryType);	
-		session.setAttribute("products_DPP", CardMap);
+		request.setAttribute("qt", queryType);	
+		request.setAttribute("products_DPP", CardMap);
 		
 //		// 使用Cookie來儲存目前讀取的網頁編號，Cookie的名稱為memberId + "pageNo"
 //		// -----------------------

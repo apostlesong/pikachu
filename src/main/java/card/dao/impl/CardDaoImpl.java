@@ -3,8 +3,11 @@ package card.dao.impl;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -176,7 +179,7 @@ public class CardDaoImpl implements Serializable, CardDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Map<Integer, CardBean> getFgPageCards() {
-		  Map<Integer, CardBean> map = new HashMap<>();
+		    Map<Integer, CardBean> map = new HashMap<>();
 			
 			List<CardBean> list = new ArrayList<CardBean>();
 			String hql = "FROM CardBean c WHERE c.cashfb LIKE '%0' OR mileagefb LIKE '%里'";
@@ -216,5 +219,40 @@ public class CardDaoImpl implements Serializable, CardDao {
 	        }
 		return map;
 	 }
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Map<Integer, CardBean> getRandomBean() {
+		Set<String> set = new HashSet<String>();
+		while(set.size()<10) {
+			int cid= (int)(Math.random()*296 + 1);
+			String cId= Integer.toString(cid);
+			set.add(cId);
+		}
+		Iterator<String> it = set.iterator();
+		String ql ="";
+		int count =0;
+		while(it.hasNext()) {
+			if(count<1) {
+			ql = "c.c_id = " + it.next();
+			}
+			else {
+			ql=ql +" or c.c_id = "+ it.next();}
+			count++;
+		}
+		
+			Map<Integer, CardBean> map = new HashMap<>();
+			
+			List<CardBean> list = new ArrayList<CardBean>();
+			ql = "FROM CardBean c WHERE " + ql;
+	        Session session = factory.getCurrentSession();
+
+	        list = session.createQuery(ql).getResultList();
+                      
+	        for(CardBean bean : list) {
+	        	map.put(bean.getC_id(), bean);
+	        }
+			return map;
+	}
 	
 }

@@ -31,7 +31,7 @@
                  <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">購物商城</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
-                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/cards/cradeitsearch.jsp">信用卡</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/cards/cradeitCb?qt=main">信用卡</a></li>
             </ul>
          </div>
        </nav>
@@ -102,11 +102,12 @@
                  </div>  
            </div>
       </div>
-      
+     
        <!--這裡為中間區塊-->
       <div class="col-12 creditcenter">
            <div class="searchbtn">找出最丘的信用卡gogogo-->
-              <a href=""> <input type="button" value="最適合我的信用卡"> </a>           
+            <a href="<c:url value="cradeitsearch_minecredit.jsp"/>">
+              <%-- <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_minecredit.jsp"> --%> <input type="button" value="最適合我的信用卡"> </a>           
             </div>
           <div class="col-3 creditsider"> <!--為側邊選單共34間銀行機構-->                
             按需要機構/銀行篩選
@@ -161,11 +162,11 @@
               <span class="text">中國銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="國泰銀行">
+              <input type="checkbox" name="bank" class="checkbox" value="國泰世華">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">國泰銀行</span>
+              <span class="text">國泰世華</span>
             </label></br>
             <label>
               <input type="checkbox" name="bank" class="checkbox" value="玉山銀行">
@@ -357,7 +358,7 @@
           
           
           <c:choose> 
-          <c:when test="${qt == 'cb'}">  <!--第1種：現金回饋-->
+          <c:when test="${qt == 'cb'|| qt == 'main' }">  <!--第1種：現金回饋-->
           <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >
                 <div class="onecard"  name="${entry.value.bank}">
                    <span id="">${entry.value.c_name}</span> <!--卡名-->
@@ -381,7 +382,11 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn">
+                       
+                       <a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>
+                       	詳細資訊</a>
+                       	</div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
@@ -412,7 +417,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
@@ -442,7 +447,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
@@ -472,7 +477,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
@@ -502,7 +507,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
@@ -532,7 +537,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
@@ -562,7 +567,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
@@ -592,7 +597,7 @@
                                <div></div>
                            </div>
                        </div>   
-                       <div class="col-2 creditbtn"><a href="" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
+                       <div class="col-2 creditbtn"><a href="${pageContext.servletContext.contextPath}/cards/cradeitsearch_produce?id=${entry.value.c_id}" class="btn btn-primary" id=>詳細資訊</a></div><!--商品連結頁面--> 
                   </div>
                 </div>
                 </c:forEach> 
