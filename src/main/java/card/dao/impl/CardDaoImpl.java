@@ -224,7 +224,7 @@ public class CardDaoImpl implements Serializable, CardDao {
 	@Override
 	public Map<Integer, CardBean> getRandomBean() {
 		Set<String> set = new HashSet<String>();
-		while(set.size()<10) {
+		while(set.size()<8) {
 			int cid= (int)(Math.random()*296 + 1);
 			String cId= Integer.toString(cid);
 			set.add(cId);

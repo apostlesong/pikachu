@@ -155,11 +155,11 @@
               <span class="text">新光銀行</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="中國銀行">
+              <input type="checkbox" name="bank" class="checkbox" value="中國信託">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">中國銀行</span>
+              <span class="text">中國信託</span>
             </label></br>
             <label >
               <input type="checkbox" name="bank" class="checkbox" value="國泰世華">
@@ -204,11 +204,11 @@
               <span class="text">遠東商銀</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="台灣企銀">
+              <input type="checkbox" name="bank" class="checkbox" value="臺灣企銀">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">台灣企銀</span>
+              <span class="text">臺灣企銀</span>
             </label></br>
             <label>
               <input type="checkbox" name="bank" class="checkbox" value="彰化銀行">
@@ -295,18 +295,18 @@
               <span class="text">台灣樂天</span>
             </label></br>
             <label>
-              <input type="checkbox" name="bank" class="checkbox" value="台灣銀行">
+              <input type="checkbox" name="bank" class="checkbox" value="臺灣銀行">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">台灣銀行</span>
+              <span class="text">臺灣銀行</span>
             </label></br>
             <label >
-              <input type="checkbox" name="bank" class="checkbox" value="台中銀行">
+              <input type="checkbox" name="bank" class="checkbox" value="台中商銀">
               <span class="btn-box">
                 <span class="btn"></span>      
               </span>
-              <span class="text">台中銀行</span>
+              <span class="text">台中商銀</span>
             </label></br>
             <label>
               <input type="checkbox" name="bank" class="checkbox" value="日盛銀行">
